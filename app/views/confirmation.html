@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Application submitted" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">Application submitted</h1>
+      <div class="govuk-panel__body">
+        Your reference number<br>
+        <strong>{{ data["reference"] }}</strong>
+      </div>
+    </div>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p class="govuk-body">We have received your startup loan application. You will receive an email confirmation shortly. A loan specialist will review your application and contact you to discuss the next steps.</p>
+    <p class="govuk-body">We will contact you within 5 working days.</p>
+    <p class="govuk-body"><a href="/start" class="govuk-link">Start a new application</a></p>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "How much do you want to borrow?" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({ text: "Back", href: "javascript:history.back()" }) }}
+
+    {% if errors and errors["loan-amount"] %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [{ text: errors["loan-amount"], href: "#loan-amount" }]
+    }) }}
+    {% endif %}
+
+    <form method="post" novalidate>
+    {{ govukRadios({
+      name: "loan-amount",
+      fieldset: {
+        legend: {
+          text: "How much do you want to borrow?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      hint: { text: "Startup loans are available from £500 to £25,000." },
+      errorMessage: errors["loan-amount"] if errors else null,
+      value: data["loan-amount"],
+      items: [
+        { value: "500-5000", text: "£500 to £5,000" },
+        { value: "5001-15000", text: "£5,001 to £15,000" },
+        { value: "15001-25000", text: "£15,001 to £25,000" }
+      ]
+    }) }}
+      {{ govukButton({ text: "Continue" }) }}
+    </form>
+
+  </div>
+</div>
+{% endblock %}

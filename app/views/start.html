@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName = "Apply for a government-backed startup loan" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Apply for a government-backed startup loan</h1>
+    <p class="govuk-body">Use this service to apply for a loan to help start or grow your small business.</p>
+    <p class="govuk-body">You will need:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>details about your business</li>
+      <li>information about your financial history</li>
+      <li>business plan or trading information</li>
+    </ul>
+    <p class="govuk-body">It takes around <strong>5 minutes</strong> to complete.</p>
+    {{ govukButton({
+      text: "Start now",
+      href: "/business-age",
+      isStartButton: true
+    }) }}
+  </div>
+</div>
+{% endblock %}
